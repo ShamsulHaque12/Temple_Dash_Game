@@ -177,25 +177,38 @@ class TempleDashGame extends FlameGame with DragCallbacks, TapCallbacks {
 
   // Swipe Gesture Handling
   Vector2 _dragDelta = Vector2.zero();
+  bool _hasSwipedInDrag = false;
 
   @override
   void onDragStart(DragStartEvent event) {
     super.onDragStart(event);
     _dragDelta = Vector2.zero();
+    _hasSwipedInDrag = false;
   }
 
   @override
   void onDragEnd(DragEndEvent event) {
     super.onDragEnd(event);
     _dragDelta = Vector2.zero();
+    _hasSwipedInDrag = false;
+  }
+
+  @override
+  void onDragCancel(DragCancelEvent event) {
+    super.onDragCancel(event);
+    _dragDelta = Vector2.zero();
+    _hasSwipedInDrag = false;
   }
 
   @override
   void onDragUpdate(DragUpdateEvent event) {
     super.onDragUpdate(event);
+    if (_hasSwipedInDrag) return;
+
     _dragDelta += event.localDelta;
 
-    if (_dragDelta.length > 30) {
+    if (_dragDelta.length > 25) {
+      _hasSwipedInDrag = true;
       if (_dragDelta.x.abs() > _dragDelta.y.abs()) {
         if (_dragDelta.x > 0) {
           player.moveRight();
@@ -213,7 +226,6 @@ class TempleDashGame extends FlameGame with DragCallbacks, TapCallbacks {
           gameController.audioService.playSfx(AssetConstants.sfxSlide);
         }
       }
-      _dragDelta = Vector2.zero();
     }
   }
 

@@ -26,7 +26,7 @@ class HitEffect extends GameComponent {
     super.render(canvas);
     final double scale = 1.0 + (timer / lifetime);
     final Paint p = Paint()
-      ..color = Colors.redAccent.withOpacity((1.0 - timer / lifetime).clamp(0.0, 1.0))
+      ..color = Colors.redAccent.withValues(alpha: (1.0 - timer / lifetime).clamp(0.0, 1.0))
       ..style = PaintingStyle.stroke
       ..strokeWidth = 5;
 

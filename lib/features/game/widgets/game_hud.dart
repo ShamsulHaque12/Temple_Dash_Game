@@ -93,45 +93,7 @@ class GameHud extends GetView<GameController> {
                 ).animate().scale(duration: 300.ms).shimmer(duration: 1000.ms),
               );
             }),
-            const SizedBox(height: 16),
-
-            // On-Screen Glassmorphic Gesture Control Buttons
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _buildControlButton(Icons.arrow_back_rounded, () => controller.game.player.moveLeft()),
-                _buildControlButton(Icons.arrow_upward_rounded, () => controller.game.player.jump()),
-                _buildControlButton(Icons.arrow_downward_rounded, () => controller.game.player.slide()),
-                _buildControlButton(Icons.arrow_forward_rounded, () => controller.game.player.moveRight()),
-              ],
-            ).animate().slideY(begin: 0.3, end: 0, duration: 400.ms)
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildControlButton(IconData icon, VoidCallback onPressed) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onPressed,
-        borderRadius: BorderRadius.circular(35),
-        splashColor: AppColors.primaryGold.withValues(alpha: 0.4),
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: AppColors.cardBg.withValues(alpha: 0.8),
-            shape: BoxShape.circle,
-            border: Border.all(color: AppColors.primaryGold.withValues(alpha: 0.6), width: 1.8),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.primaryGold.withValues(alpha: 0.15),
-                blurRadius: 10,
-              ),
-            ],
-          ),
-          child: Icon(icon, color: AppColors.primaryGold, size: 26),
         ),
       ),
     );

@@ -45,7 +45,7 @@ class LeaderboardScreen extends GetView<LeaderboardController> {
                 margin: const EdgeInsets.only(bottom: 12),
                 child: ListTile(
                   leading: CircleAvatar(
-                    backgroundColor: rankColor.withOpacity(0.2),
+                    backgroundColor: rankColor.withValues(alpha: 0.2),
                     child: Text(
                       '#$rank',
                       style: TextStyle(color: rankColor, fontWeight: FontWeight.bold),

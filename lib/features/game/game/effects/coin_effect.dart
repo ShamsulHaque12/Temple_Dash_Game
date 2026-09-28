@@ -26,7 +26,7 @@ class CoinEffect extends GameComponent {
   void render(Canvas canvas) {
     super.render(canvas);
     final double opacity = (1.0 - (timer / lifetime)).clamp(0.0, 1.0);
-    final Paint p = Paint()..color = Colors.amberAccent.withOpacity(opacity);
+    final Paint p = Paint()..color = Colors.amberAccent.withValues(alpha: opacity);
     canvas.drawCircle(Offset(size.x / 2, size.y / 2), size.x * (0.5 + timer), p);
   }
 }

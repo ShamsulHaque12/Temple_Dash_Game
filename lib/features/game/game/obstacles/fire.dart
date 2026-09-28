@@ -7,10 +7,9 @@ class FireObstacle extends Obstacle {
   double animationTimer = 0.0;
 
   FireObstacle({
-    required int lane,
+    required super.lane,
     required Vector2 position,
   }) : super(
-          lane: lane,
           type: ObstacleType.fire,
           initialPosition: position,
           obstacleSize: Vector2(80, 50),

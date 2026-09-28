@@ -5,10 +5,9 @@ import '../../../../core/enums/obstacle_type.dart';
 
 class TreeObstacle extends Obstacle {
   TreeObstacle({
-    required int lane,
+    required super.lane,
     required Vector2 position,
   }) : super(
-          lane: lane,
           type: ObstacleType.tree,
           initialPosition: position,
           obstacleSize: Vector2(100, 45), // Overhead branch: must slide under!

@@ -20,7 +20,7 @@ class GameOverDialog extends GetView<GameController> {
           border: Border.all(color: AppColors.secondaryOrange, width: 2),
           boxShadow: [
             BoxShadow(
-              color: AppColors.secondaryOrange.withOpacity(0.3),
+              color: AppColors.secondaryOrange.withValues(alpha: 0.3),
               blurRadius: 20,
               spreadRadius: 2,
             ),

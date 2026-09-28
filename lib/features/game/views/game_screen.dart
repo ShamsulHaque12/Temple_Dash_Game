@@ -30,7 +30,7 @@ class GameScreen extends GetView<GameController> {
           Obx(() {
             if (controller.gameState.value == GameState.paused) {
               return Container(
-                color: Colors.black.withOpacity(0.7),
+                color: Colors.black.withValues(alpha: 0.7),
                 child: Center(
                   child: Card(
                     color: AppColors.cardBg,

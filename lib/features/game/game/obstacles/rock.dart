@@ -5,10 +5,9 @@ import '../../../../core/enums/obstacle_type.dart';
 
 class RockObstacle extends Obstacle {
   RockObstacle({
-    required int lane,
+    required super.lane,
     required Vector2 position,
   }) : super(
-          lane: lane,
           type: ObstacleType.rock,
           initialPosition: position,
           obstacleSize: Vector2(70, 70),

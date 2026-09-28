@@ -34,7 +34,7 @@ class TempleGuard extends AnimatedComponent {
 
     final Paint monsterPaint = Paint()..color = const Color(0xFF881337);
     final Paint eyePaint = Paint()..color = Colors.yellowAccent;
-    final Paint shadowPaint = Paint()..color = Colors.black.withOpacity(0.5);
+    final Paint shadowPaint = Paint()..color = Colors.black.withValues(alpha: 0.5);
 
     // Shadow
     canvas.drawOval(
