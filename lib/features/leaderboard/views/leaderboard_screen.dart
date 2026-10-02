@@ -48,7 +48,8 @@ class LeaderboardScreen extends GetView<LeaderboardController> {
                     backgroundColor: rankColor.withValues(alpha: 0.2),
                     child: Text(
                       '#$rank',
-                      style: TextStyle(color: rankColor, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: rankColor, fontWeight: FontWeight.bold),
                     ),
                   ),
                   title: Text(
@@ -57,7 +58,8 @@ class LeaderboardScreen extends GetView<LeaderboardController> {
                   ),
                   subtitle: Text(
                     item['date'] ?? '',
-                    style: const TextStyle(color: AppColors.textMuted, fontSize: 12),
+                    style: const TextStyle(
+                        color: AppColors.textMuted, fontSize: 12),
                   ),
                   trailing: Text(
                     GameUtils.formatScore((item['score'] as num).toInt()),

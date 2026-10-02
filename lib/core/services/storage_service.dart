@@ -48,22 +48,19 @@ class StorageService extends GetxService {
   List<Map<String, dynamic>> get leaderboardData {
     final List<dynamic>? raw = _box.read<List<dynamic>>(StorageKeys.leaderboardData);
     if (raw == null) {
-      return [
-        {'name': 'Explorer Indiana', 'score': 15000, 'date': 'Today'},
-        {'name': 'Temple Raider', 'score': 12400, 'date': 'Yesterday'},
-        {'name': 'Dash Master', 'score': 9800, 'date': '3 days ago'},
-        {'name': 'Golden Runner', 'score': 7200, 'date': '1 week ago'},
-      ];
+      return [];
     }
     return raw.map((e) => Map<String, dynamic>.from(e as Map)).toList();
   }
 
   Future<void> addLeaderboardEntry(String name, int score) async {
     final current = leaderboardData;
+    final now = DateTime.now();
+    final dateStr = '${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}';
     current.add({
       'name': name,
       'score': score,
-      'date': 'Just now',
+      'date': dateStr,
     });
     current.sort((a, b) => (b['score'] as int).compareTo(a['score'] as int));
     if (current.length > 10) {
